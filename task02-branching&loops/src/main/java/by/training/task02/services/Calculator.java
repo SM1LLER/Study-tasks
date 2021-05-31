@@ -23,18 +23,25 @@ public class Calculator{
      * @return double - sine of x
      */
     public static double sin(double x) {
-        final int PRECISION = 4;
+        final int PRECISION = 10;
         final double PI = 3.1415926535;
 
+        double angle = x;
+        angle %= 2 * PI;
+
+        if (angle < 0) {
+            angle = 2 * PI - angle;
+        }
+
         int sine = 1;
-        if (x > PI) {
-            x -= PI;
+        if (angle > PI) {
+            angle -= PI;
             sine = -1;
         }
 
         double temp = 0;
         for (int i = 0; i <= PRECISION; i++) {
-            temp += powDouble(-1, i) * (powDouble(x, 2 * i + 1) / factorial(2 * i + 1));
+            temp += powDouble(-1, i) * (powDouble(angle, 2 * i + 1) / factorial(2 * i + 1));
         }
 
         return sine * temp;

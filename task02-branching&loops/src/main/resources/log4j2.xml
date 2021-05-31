@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG">
+	<Properties>
+		<Property name="patternfull">
+			%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{5} - %msg%n
+		</Property>
+		<Property name="patternshort">
+			%d{HH:mm:ss.SSS} [%t] %-5level %logger{1} - %msg%n
+		</Property>
+		<Property name="patternio">
+			%d{HH:mm:ss.SSS}: %msg%n
+		</Property>
+	</Properties>
+	<Appenders>
+		<File name="TxtFileRunner" fileName="logs/runner.log" bufferedIO="true">
+			<PatternLayout pattern="${patternfull}" />
+		</File>
+		<File name="TxtFileCalc" fileName="logs/calculator.log" bufferedIO="true">
+			<PatternLayout pattern="${patternfull}" />
+		</File>
+		<File name="TxtFileIn" fileName="logs/input.log" bufferedIO="true">
+			<PatternLayout pattern="${patternfull}" />
+		</File>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${patternshort}" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="error">
+			<AppenderRef ref="Console"/>
+		</Root>
+		<Logger name="by.training.task01.main.Runner" level="INFO"
+				additivity="false">
+			<AppenderRef ref="TxtFileRunner" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="CalculatorLogger" level="DEBUG"
+				additivity="false">
+			<AppenderRef ref="TxtFileCalc" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task02.dal.InputFromFileIml" level="DEBUG"
+				additivity="false">
+			<AppenderRef ref="TxtFileIn" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+	</Loggers>
+</Configuration>

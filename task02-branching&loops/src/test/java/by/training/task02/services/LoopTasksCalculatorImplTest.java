@@ -54,7 +54,7 @@ public class LoopTasksCalculatorImplTest {
     @DataProvider(name = "positiveDataForCalcFunction")
     public Object[][] createPositiveForCalcFunction(){
         return new Object[][]{
-                {new double[]{0, 11, 10}, new String[]{"0\t0","10\t0,544"}},
+                {new double[]{0, 11, 10}, new String[]{"0.0\t0.0","10.0\t0.544"}},
         };
     }
 
@@ -117,6 +117,7 @@ public class LoopTasksCalculatorImplTest {
     @Test(description = "Test with negative result for arithmProgres()", dataProvider = "negativeDataForCalcArithmProgres",
             expectedExceptions = IllegalArgumentException.class)
     public void testNegativeCalcArithmProgres(int a) {
+
         loopTasksCalculator.calcArithmProgres(a);
     }
 
@@ -130,7 +131,8 @@ public class LoopTasksCalculatorImplTest {
     @Test(description = "Test with negative result for hasProgression()", dataProvider = "negativeDataForHasProgression",
             expectedExceptions = IllegalArgumentException.class)
     public void testNegativeHasProgression(int a) {
-       loopTasksCalculator.hasProgression(a);
+
+        loopTasksCalculator.hasProgression(a);
     }
 
     @Test(description = "Test with positive result for calcFunction()", dataProvider = "positiveDataForCalcFunction")
@@ -143,6 +145,7 @@ public class LoopTasksCalculatorImplTest {
     @Test(description = "Test with negative result for calcFunction()", dataProvider = "negativeDataForCalcFunction",
             expectedExceptions = IllegalArgumentException.class)
     public void testNegativeCalcFunction(double[] a) {
+
         loopTasksCalculator.calcFunction(a[0], a[1], a[2]);
     }
 
@@ -156,6 +159,7 @@ public class LoopTasksCalculatorImplTest {
     @Test(description = "Test with negative result for translateFromRoman()", dataProvider = "negativeDataForTranslateFromRoman",
             expectedExceptions = IllegalArgumentException.class)
     public void testNegativeTranslateFromRoman(String a) {
+
         loopTasksCalculator.translateFromRoman(a);
     }
 
@@ -169,6 +173,7 @@ public class LoopTasksCalculatorImplTest {
     @Test(description = "Test with negative result for calcSumToX()", dataProvider = "negativeDataForCalcSumToX",
             expectedExceptions = IllegalArgumentException.class)
     public void testNegativeCalcSumToX(int a) {
+
         loopTasksCalculator.calcSumToX(a);
     }
 }
