@@ -26,7 +26,7 @@
 		</Console>
 	</Appenders>
 	<Loggers>
-		<Root level="error">
+		<Root level="OFF">
 			<AppenderRef ref="Console"/>
 		</Root>
 		<Logger name="by.training.task01.main.Runner" level="INFO"

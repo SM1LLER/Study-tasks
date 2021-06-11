@@ -39,7 +39,7 @@ public class InputFromFileImpl implements InputFromFile {
             return inputLines;
         } else inputLogger.error("Input file is empty");
 
-        return null;
+        return new ArrayList<>();
     }
 
 
