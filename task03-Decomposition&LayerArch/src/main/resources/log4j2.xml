@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+	<Properties>
+		<Property name="patternfull">
+			%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{5} - %msg%n
+		</Property>
+		<Property name="patternshort">
+			%d{HH:mm:ss.SSS} [%t] %-5level %logger{1} - %msg%n
+		</Property>
+		<Property name="patternio">
+			%d{HH:mm:ss.SSS}: %msg%n
+		</Property>
+	</Properties>
+	<Appenders>
+		<File name="TxtFileController" fileName="logs/controller.log" bufferedIO="true">
+			<PatternLayout pattern="${patternfull}" />
+		</File>
+		<File name="TxtFileDao" fileName="logs/dao.log" bufferedIO="true">
+			<PatternLayout pattern="${patternfull}" />
+		</File>
+		<File name="TxtFileIn" fileName="logs/input.log" bufferedIO="true">
+			<PatternLayout pattern="${patternfull}" />
+		</File>
+		<File name="TxtFileSort" fileName="logs/sort.log" bufferedIO="true">
+			<PatternLayout pattern="${patternfull}" />
+		</File>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${patternshort}" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<Root level="off">
+			<AppenderRef ref="Console"/>
+		</Root>
+		<Logger name="by.training.task03.controller.Controller" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileController" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.dal.ArrayDaoImpl" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileDao" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.dal.MatrixDaoImpl" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileDao" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.ArrayFromFileSortImpl" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task02.dal.InputFromFileIml" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileIn" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.ShakerSorter" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.ShellSorter" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.MergeSorter" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.InsertionSorter" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.SelectionSorter" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.HashSorter" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.service.impl.BubbleSorterSorter" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+		<Logger name="by.training.task03.entity.SortedLinkedList" level="off"
+				additivity="false">
+			<AppenderRef ref="TxtFileSort" />
+			<AppenderRef ref="Console"/>
+		</Logger>
+	</Loggers>
+</Configuration>
